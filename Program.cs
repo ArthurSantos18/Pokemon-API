@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Pokedex_API.Models;
+using Pokedex_API.Repositories;
 
 namespace Pokedex_API
 {
@@ -11,6 +12,7 @@ namespace Pokedex_API
 
             // Add services to the container.
             builder.Services.AddDbContext<PokemonContext>(x => x.UseSqlite("Data source = pokemons.db"));
+            builder.Services.AddScoped<IPokemonRepository, PokemonRepository>();
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();

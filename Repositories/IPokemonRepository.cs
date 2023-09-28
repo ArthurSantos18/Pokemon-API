@@ -4,10 +4,10 @@ namespace Pokedex_API.Repositories
 {
     public interface IPokemonRepository
     {
-        Task<IEnumerable<Pokemon>> Get();
-        Task<Pokemon> Get(int id);
-        Task<Pokemon> Create(Pokemon pokemon);
-        Task Update(Pokemon pokemon);
-        Task Delete(int id);
+        Task<IEnumerable<Pokemon>> GetAllAsync();
+        Task<Pokemon> GetAsync(int id);
+        Task<Pokemon> CreateAsync(Pokemon pokemon);
+        Task UpdateAsync(Pokemon pokemon);
+        Task DeleteAsync(int id);
     }
 }

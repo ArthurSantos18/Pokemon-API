@@ -11,7 +11,7 @@ namespace Pokedex_API.Repositories
             _context = context;
         }
 
-        public async Task<Pokemon> Create(Pokemon pokemon)
+        public async Task<Pokemon> CreateAsync(Pokemon pokemon)
         {
             _context.Pokemons.Add(pokemon);
             await _context.SaveChangesAsync();
@@ -19,26 +19,26 @@ namespace Pokedex_API.Repositories
             return pokemon;
         }
 
-        public async Task Delete(int id)
+        public async Task DeleteAsync(int id)
         {
             var pokemon = await _context.Pokemons.FindAsync(id);
             _context.Pokemons.Remove(pokemon);
             await _context.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<Pokemon>> Get()
+        public async Task<IEnumerable<Pokemon>> GetAllAsync()
         {
             var pokemons = await _context.Pokemons.ToListAsync();
             return pokemons;
         }
 
-        public async Task<Pokemon> Get(int id)
+        public async Task<Pokemon> GetAsync(int id)
         {
             var pokemon = await _context.Pokemons.FindAsync(id);
             return pokemon;
         }
 
-        public async Task Update(Pokemon pokemon)
+        public async Task UpdateAsync(Pokemon pokemon)
         {
             _context.Update(pokemon);
             await _context.SaveChangesAsync();
